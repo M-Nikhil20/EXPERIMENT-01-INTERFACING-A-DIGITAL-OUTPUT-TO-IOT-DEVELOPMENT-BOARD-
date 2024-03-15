@@ -1,8 +1,8 @@
-###  DATE: 15.03.2024
+###  DATE: 23/02/2024
 
 ###  NAME: M Nikhil
-###  ROLL NO :212222230095
-###  DEPARTMENT: AI DS
+###  ROLL NO : 212222230095
+###  DEPARTMENT: AI & DS
 
 
 
@@ -86,10 +86,12 @@ The main features of LPC2148 include the following.
 
 
 ## STM 32 CUBE PROGRAM :
-```
+```c
 #include "main.h"
+
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+
 int main(void)
 {
   HAL_Init();
@@ -98,75 +100,25 @@ int main(void)
   while (1)
   {
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
-	  HAL_Delay(3000);
+	  HAL_Delay(500);
 	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-	  HAL_Delay(3000);
+	  HAL_Delay(500);
   }
-}
-void SystemClock_Config(void)
-{
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE2);
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK3|RCC_CLOCKTYPE_HCLK
-                              |RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_PCLK1
-                              |RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_MSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.AHBCLK3Divider = RCC_SYSCLK_DIV1;
-
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
-  {
-    Error_Handler();
-  }
-}
-static void MX_GPIO_Init(void)
-{
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  __HAL_RCC_GPIOA_CLK_ENABLE();
-  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
-  GPIO_InitStruct.Pin = GPIO_PIN_0;
-  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
-  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
-
-}
-
-void Error_Handler(void)
-{
-  __disable_irq();
-  while (1)
-  {
-  }
-}
-
-void assert_failed(uint8_t *file, uint32_t line)
-{
  
 }
-#endif
 ```
 
 
 
 
 ## OUTPUT  :
-LED ON:
-  ![on_led](https://github.com/s-adhithya/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/113497423/a92a6a10-928d-4e1a-bed6-5eba1ef83d0c)
- LED OFF:
-  ![off_led](https://github.com/s-adhithya/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/113497423/23b73ccc-2eb2-4285-b028-caa8e76da9ec)
+### LED ON:
+ ![image](https://github.com/R-Udayakumar/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/118708024/d3f98f39-bad1-4bc8-b52d-51c657d6088e)
+
+### LED OFF:
+ ![image](https://github.com/R-Udayakumar/EXPERIMENT-01-INTERFACING-A-DIGITAL-OUTPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/118708024/f951d78c-38bd-4268-91a2-7be8098f4667)
+
+ 
  
  
 ## Result :
